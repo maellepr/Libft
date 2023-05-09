@@ -6,7 +6,7 @@
 /*   By: mapoirie <mapoirie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 09:30:06 by mapoirie          #+#    #+#             */
-/*   Updated: 2023/05/08 14:57:07 by mapoirie         ###   ########.fr       */
+/*   Updated: 2023/05/08 18:34:32 by mapoirie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,25 +92,25 @@ char	**ft_split(char const *s, char c)
 	return (str);
 }
 
-// // int	main()
-// // {
-// // 	int i;
-// // 	int j;
-// // 	char c = ' ';
-// // 	char const s[] = "     Ii love   you you   you          you ";
-// // 	char **strsplit;
+int	main()
+{
+	int i;
+	int j;
+	char c = 'z';
+	char const s[] = "";
+	char **strsplit;
 
-// // 	i = 0;
-// // 	strsplit = ft_split(s, c);
-// // 	while (strsplit[i])
-// // 	{
-// // 		j = 0;
-// // 		while (strsplit[i][j])
-// // 		{
-// // 			printf("%c", strsplit[i][j]);
-// // 			j++;
-// // 		}
-// // 		printf("\n");
-// // 		i++;
-// // 	}
-// // }
+	i = 0;
+	strsplit = ft_split(s, c);
+	while (strsplit[i])
+	{
+		j = 0;
+		while (strsplit[i][j])
+		{
+			printf("%c", strsplit[i][j]);
+			j++;
+		}
+		printf("\n");
+		i++;
+	}
+}

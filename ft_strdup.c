@@ -6,7 +6,7 @@
 /*   By: mapoirie <mapoirie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 13:41:15 by mapoirie          #+#    #+#             */
-/*   Updated: 2023/05/04 15:20:57 by mapoirie         ###   ########.fr       */
+/*   Updated: 2023/05/08 18:34:25 by mapoirie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_strdup(const char *s)
 	i = 0;
 	str = (char *)malloc((strlen(s) + 1) * sizeof(char));
 	if (!str)
-		return (0);
+		return (NULL);
 	while (s[i] != '\0')
 	{
 		str[i] = s[i];
@@ -29,11 +29,15 @@ char	*ft_strdup(const char *s)
 	str[i] = '\0';
 	return (str);
 }
-/*
-int main()
-{
-	const char	s[] = "Bonjour he";
-	
-	printf("%s", ft_strdup(s));
-	//printf("%s", strdup(s));
-}*/
+
+// int main()
+// {
+// 	char	str[] = "lorem ipsum dolor sit amet";
+// 	char	*str_dup;
+// 	str_dup = strdup(str);
+// 	printf("%s", ft_strdup);
+// 	// const char	s[] = "Bonjour he";	
+// 	// printf("%s", ft_strdup(s));
+// 	//printf("%s", strdup(s));
+// 	// free(s);
+// }
