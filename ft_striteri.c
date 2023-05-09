@@ -1,36 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mapoirie <mapoirie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/02 13:38:07 by mapoirie          #+#    #+#             */
-/*   Updated: 2023/05/08 18:34:25 by mapoirie         ###   ########.fr       */
+/*   Created: 2023/05/09 09:49:19 by mapoirie          #+#    #+#             */
+/*   Updated: 2023/05/09 11:33:04 by mapoirie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+void	f(unsigned int i, char *c)
 {
-	char	chr;
-	size_t	i;
-
-	chr = (char)c;
-	i = ft_strlen(s);
-	while (i > 0)
-	{
-		if (s[i] == chr)
-			return ((char *)s + i);
-		i--;
-	}
-	return (NULL);
+	if (i % 2 == 0)
+		*c = 'r';
+	if (i % 2 != 0)
+		*c = 'c';
 }
-/*
+
+void ft_striteri(char *s, void (*f)(unsigned int, char*))
+{
+	unsigned int	i;
+
+	i = 0;
+	while (s[i] != '\0')
+	{
+		f(i, s + i);
+		i++;
+	}
+} 
+
 int main()
 {
-    const char s[] = "Hello my favorite gamer";
-
-    printf("%s \n", ft_strrchr(s, 109)); 
-}*/
+	char	s[] = "Bonjour je suis la";
+	
+	ft_striteri(s, &f);
+	printf("%s\n", s);
+	return 0;
+}

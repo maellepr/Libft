@@ -6,7 +6,7 @@
 /*   By: mapoirie <mapoirie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 09:26:07 by mapoirie          #+#    #+#             */
-/*   Updated: 2023/05/05 16:50:52 by mapoirie         ###   ########.fr       */
+/*   Updated: 2023/05/08 18:34:31 by mapoirie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,10 @@ char *ft_strtrim(char const *s1, char const *set)
 	return (ft_substr(s1, start_diff, end));
 }
 
-int	main()
-{
-	char const	s1[] = "acbaaabbbb-- maelle --bccccacb";
-	char const	set[] = "abc";
+// int	main()
+// {
+// 	char const	s1[] = "acbaaabbbb-- maelle --bccccacb";
+// 	char const	set[] = "abc";
 
-	printf("s1 : %s\n", ft_strtrim(s1, set));
-}
+// 	printf("s1 : %s\n", ft_strtrim(s1, set));
+// }

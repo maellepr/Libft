@@ -6,7 +6,7 @@
 /*   By: mapoirie <mapoirie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 16:16:23 by mapoirie          #+#    #+#             */
-/*   Updated: 2023/05/05 09:18:42 by mapoirie         ###   ########.fr       */
+/*   Updated: 2023/05/08 18:34:31 by mapoirie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,11 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	str[i] = '\0';
 	return (str);
 }
-/*
-int	main()
-{
-	char const	s1[] = "Bonjour";
-	char const	s2[] = " spaghetti !";
 
-	printf("str : %s\n", ft_strjoin(s1, s2));
-}*/
+// int	main()
+// {
+// 	char const	s1[] = "Bonjour";
+// 	char const	s2[] = " spaghetti !";
+
+// 	printf("str : %s\n", ft_strjoin(s1, s2));
+// }

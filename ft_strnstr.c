@@ -6,12 +6,12 @@
 /*   By: mapoirie <mapoirie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 13:30:18 by mapoirie          #+#    #+#             */
-/*   Updated: 2023/05/04 14:46:16 by mapoirie         ###   ########.fr       */
+/*   Updated: 2023/05/08 17:59:12 by mapoirie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
- 
+
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
 	size_t	i;

@@ -1,36 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mapoirie <mapoirie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/02 13:38:07 by mapoirie          #+#    #+#             */
-/*   Updated: 2023/05/08 18:34:25 by mapoirie         ###   ########.fr       */
+/*   Created: 2023/05/09 09:31:30 by mapoirie          #+#    #+#             */
+/*   Updated: 2023/05/09 11:33:05 by mapoirie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+char	f(unsigned int i, char c)
 {
-	char	chr;
-	size_t	i;
-
-	chr = (char)c;
-	i = ft_strlen(s);
-	while (i > 0)
-	{
-		if (s[i] == chr)
-			return ((char *)s + i);
-		i--;
-	}
-	return (NULL);
+	if (i % 2)
+		return ('c');
+	return ('r');
 }
-/*
-int main()
-{
-    const char s[] = "Hello my favorite gamer";
 
-    printf("%s \n", ft_strrchr(s, 109)); 
-}*/
+char *ft_strmapi(char const *s, char (*f)(unsigned int, char))
+{
+	unsigned int	i;
+	char			*str;
+
+	i = 0;
+	str = (char *)malloc(sizeof(char) * ft_strlen(s) + 1);
+	if (str == NULL)
+		return (NULL);
+	while (s[i])
+	{
+		str[i] = f(i, s[i]);
+		i++;
+	}
+	str[i] = '\0';
+	return (str);
+}
+
+int	main()
+{
+	printf("%s\n", ft_strmapi("bonjour je suis la", &f));
+	return 0;
+}
