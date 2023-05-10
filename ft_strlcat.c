@@ -6,59 +6,45 @@
 /*   By: mapoirie <mapoirie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 13:31:55 by mapoirie          #+#    #+#             */
-/*   Updated: 2023/05/08 18:34:24 by mapoirie         ###   ########.fr       */
+/*   Updated: 2023/05/10 09:20:08 by mapoirie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <bsd/string.h>
 
-size_t	ft_strlen(const char *s)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
 	size_t	i;
+	size_t	len_dst;
 
 	i = 0;
-	while (s[i] != '\0')
-		i++;
-	return (i);
-}
-
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
-{
-	size_t	i;
-	size_t	j;
-	size_t	dst_len;
-	size_t	src_len;
-
-	i = 0;
-	j = 0;
-	dst_len = ft_strlen(dst);
-	src_len = ft_strlen(src);
-	while (dst[i] != '\0' && i < dstsize)
-		i++;
-	while (src[j] != '\0' && i < dstsize - 1)
+	len_dst = ft_strlen(dst);
+	if (size == len_dst)
+		return (ft_strlen(src) + len_dst);
+	if (size > len_dst)
 	{
-		dst[i] = src[j];
-		i++;
-		j++;
+		while (src[i] && i < (size - len_dst - 1))
+		{
+			dst[len_dst + i] = src[i];
+			i++;
+		}
+		dst[len_dst + i] = '\0';
+		return (len_dst + ft_strlen(src));
 	}
-	if (dstsize != 0 && dstsize >= dst_len)
-		dst[i] = '\0';
-	if (dstsize < dst_len)
-		return (src_len + dstsize);
-// si size (variable d'entrée) plus petit que longueur de dst
-// retourner longueur src + size
 	else
-		return (src_len + dst_len);
-// sinon (size plus grand que longueur de dst)
-// retourner longeur de src + longueur de dst
+		return (ft_strlen(src) + size);
 }
-/*
-int main()
-{
-    char    dst[] = "Hello";
-    char    src[] = "Hellao";
 
-    //printf("%zu \n", ft_strlcat(dst, src, 4));
-    printf("%zu \n", strlcat(dst, src, 4));
-}*/
+// int main()
+// {
+//     char    dst[] = "";
+//     char    src[] = "lorem ipsum dolor sit amet";
+//     memset(dst, 'r', 15);
+// 	// printf("%s \n", dst);
+// 	// printf("%s \n", src);
+// 	// printf("ft strlcat : %zu \n", ft_strlcat(dst, src, 0));
+// 	// printf("dst : %s", dst);
+//     printf("strlcat    : %zu \n", strlcat(dst, src, 0));
+// 	printf("dst : %s", dst);
+// }

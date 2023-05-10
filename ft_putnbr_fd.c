@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mapoirie <mapoirie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/05 17:46:15 by mapoirie          #+#    #+#             */
-/*   Updated: 2023/05/09 11:55:08 by mapoirie         ###   ########.fr       */
+/*   Created: 2023/05/09 12:04:04 by mapoirie          #+#    #+#             */
+/*   Updated: 2023/05/09 12:38:52 by mapoirie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
+void	ft_putnbr_fd(int n, int fd)
 {
-	int	i;
+	long	nb;
 
-	i = 0;
-	while (s[i])
+	nb = n;
+	if (nb < 0)
 	{
-		write(fd, &s[i], 1);
-		i++;
+		write(fd, "-", 1);
+		nb = -nb;
 	}
+	if (nb > 9)
+		ft_putnbr_fd(nb / 10, fd);
+	ft_putchar_fd(nb % 10 + '0', fd);
 }
 
 // int	main()
 // {
-// 	char	s[] = "Bonjour ca va";
-// 	ft_putstr_fd(s, 1);
+// 	ft_putnbr_fd(2147483648, 1);
 // }

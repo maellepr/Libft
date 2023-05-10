@@ -6,7 +6,7 @@
 /*   By: mapoirie <mapoirie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 13:31:47 by mapoirie          #+#    #+#             */
-/*   Updated: 2023/05/04 11:59:18 by mapoirie         ###   ########.fr       */
+/*   Updated: 2023/05/09 16:49:34 by mapoirie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,18 @@ char	*ft_strchr(const char *s, int c)
 			return ((char *) &s[i]);
 		i++;
 	}
+	if (!c && s[i] == '\0')
+		return ((char *) &s[i]);
 	return (NULL);
 }
-/*
-int main()
-{
-    const char s[] = "Hello";
-    printf("%s \n", ft_strchr(s, 101)); 
-}*/
+
+// int main()
+// {
+//     // const char s[] = "Hello";
+//     // printf("%s \n", ft_strchr(s, 101)); 
+
+// 	//char	*str;
+// 	char	str2[] = "bonjour";
+
+// 	printf("%s \n", ft_strchr(str2, '\0')); 
+// }

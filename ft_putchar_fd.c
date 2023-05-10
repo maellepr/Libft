@@ -6,7 +6,7 @@
 /*   By: mapoirie <mapoirie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 17:34:22 by mapoirie          #+#    #+#             */
-/*   Updated: 2023/05/08 18:34:28 by mapoirie         ###   ########.fr       */
+/*   Updated: 2023/05/09 11:52:27 by mapoirie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,3 +16,8 @@ void	ft_putchar_fd(char c, int fd)
 {
 	write(fd, &c, 1);
 }
+
+// int	main()
+// {
+// 	ft_putchar_fd('a', 1);
+// }

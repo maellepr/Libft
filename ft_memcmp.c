@@ -6,7 +6,7 @@
 /*   By: mapoirie <mapoirie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 10:38:27 by mapoirie          #+#    #+#             */
-/*   Updated: 2023/05/08 16:38:02 by mapoirie         ###   ########.fr       */
+/*   Updated: 2023/05/10 13:52:44 by mapoirie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,18 @@
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	const unsigned char	*str1;
-	const unsigned char	*str2;
+	char	*str1;
+	char	*str2;
 
-	str1 = s1;
-	str2 = s2;
+	str1 = (char *)s1;
+	str2 = (char *)s2;
 	if (n == 0)
 		return (0);
 	while (n--)
 	{
 		if (*str1 != *str2)
 		{
-			return (*str1 - *str2);
+			return ((unsigned char)*str1 - (unsigned char)*str2);
 		}
 		str1++;
 		str2++;
@@ -33,17 +33,17 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	return (0);
 }
 
-// int	main()
-// {
+int	main()
+{
 //    unsigned char tab1 [4] = { 'a', 'b', '\0', 'c' };
 //    unsigned char tab2 [4] = { 'a', 'b', '\0', 'c' };
 //    unsigned char tab3 [4] = { 'a', 'b', 'c', 'h' };
 //    unsigned char tab4 [4] = { 'a', 'b', 'a', 'h' };
-//    unsigned char tab5 [] = "";
-//    unsigned char tab6 [4] = { 'a', 'b', 'c', 'd' };
-// 
-//    //printf ("Test 1 : %d\n", ft_memcmp (tab1, tab2, 5));
-//    //printf ("Test 2 : %d\n", ft_memcmp (tab2, tab3, 5));
-//    printf ("Test 3 : %d\n", memcmp (tab5, tab6, 5));
-//    return 0;
-// }
+   unsigned char tab5 [] = "";
+   unsigned char tab6 [4] = { 'a', 'b', 'c', 'd' };
+
+//    printf ("Test 1 : %d\n", ft_memcmp (tab1, tab2, 5));
+//    printf ("Test 2 : %d\n", ft_memcmp (tab2, tab3, 5));
+   printf ("Test 3 : %d\n", ft_memcmp (tab5, tab6, 5));
+   return 0;
+}

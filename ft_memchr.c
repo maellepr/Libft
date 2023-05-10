@@ -6,7 +6,7 @@
 /*   By: mapoirie <mapoirie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 09:39:37 by mapoirie          #+#    #+#             */
-/*   Updated: 2023/05/08 17:34:34 by mapoirie         ###   ########.fr       */
+/*   Updated: 2023/05/10 11:06:30 by mapoirie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	str = (char *)s;
 	while (i < n)
 	{
-		if (str[i] == c)
+		if ((unsigned char)str[i] == (unsigned char)c)
 		{
-			return (str + i);
+			return ((char *)str + i);
 		}
 		i++;
 	}

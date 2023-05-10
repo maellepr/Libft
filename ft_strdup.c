@@ -6,7 +6,7 @@
 /*   By: mapoirie <mapoirie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 13:41:15 by mapoirie          #+#    #+#             */
-/*   Updated: 2023/05/08 18:34:25 by mapoirie         ###   ########.fr       */
+/*   Updated: 2023/05/09 15:55:15 by mapoirie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strdup(const char *s)
 	char	*str;
 
 	i = 0;
-	str = (char *)malloc((strlen(s) + 1) * sizeof(char));
+	str = (char *)malloc((ft_strlen(s) + 1) * sizeof(char));
 	if (!str)
 		return (NULL);
 	while (s[i] != '\0')

@@ -6,42 +6,42 @@
 /*   By: mapoirie <mapoirie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 13:30:18 by mapoirie          #+#    #+#             */
-/*   Updated: 2023/05/08 17:59:12 by mapoirie         ###   ########.fr       */
+/*   Updated: 2023/05/09 14:33:59 by mapoirie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+char	*ft_strnstr(const char *s1, const char *s2, size_t len)
 {
 	size_t	i;
 	size_t	j;
 
 	i = 0;
-	if (!needle[i])
-		return ((char *) haystack);
-	while (haystack[i] && i < len)
+	if (!s2[i])
+		return ((char *) s1);
+	while (s1[i] && i < len)
 	{
 		j = 0;
-		if (haystack[i] == needle[j])
+		if (s1[i] == s2[j])
 		{
-			while (haystack[i + j] == needle[j] && needle[j] != '\0')
+			while (s1[i + j] == s2[j] && s2[j] != '\0' && i + j < len)
 			{
 				j++;
-				if (needle[j] == '\0')
-					return ((char *)haystack + i);
+				if (s2[j] == '\0')
+					return ((char *)s1 + i);
 			}
 		}
 		i++;
 	}
 	return (0);
 }
-/*
-int main()
-{
-    const char  haystack[] = "J'ai mangé pom une pomme verte ce matin";
-    const char  needle[] = "pomme";
 
-    printf("%s \n", ft_strnstr(haystack, needle, 5)); 
-    //printf("%s \n", strnstr(haystack, needle, 5));//pas reussi a compiler
-}*/
+// int main()
+// {
+//     const char  haystack[] = "lorem ipsum dolor sit amet";
+//     const char  needle[] = "dolor";
+
+//     printf("%s \n", ft_strnstr(haystack, needle, 15)); 
+//     //printf("%s \n", strnstr(haystack, needle, 5));//pas reussi a compiler
+// }
