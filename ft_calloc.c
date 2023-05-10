@@ -6,7 +6,7 @@
 /*   By: mapoirie <mapoirie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 12:07:47 by mapoirie          #+#    #+#             */
-/*   Updated: 2023/05/10 13:53:34 by mapoirie         ###   ########.fr       */
+/*   Updated: 2023/05/10 14:56:38 by mapoirie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	ptr = (void *)malloc(nmemb * size * sizeof(char));
 	if (!ptr)
 		return (NULL);
-	ft_memset(ptr, '\0', nmemb);
+	ft_bzero(ptr, nmemb * size);
 	return (ptr);
 }
 

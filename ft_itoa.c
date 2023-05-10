@@ -6,24 +6,26 @@
 /*   By: mapoirie <mapoirie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 18:04:30 by mapoirie          #+#    #+#             */
-/*   Updated: 2023/05/09 09:29:39 by mapoirie         ###   ########.fr       */
+/*   Updated: 2023/05/10 17:38:27 by mapoirie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_zero(char *str)
+static char	*ft_zero(char *str)
 {
 	str[0] = '0';
 	return (str);
 }
 
-int	ft_countdigit(long int nb)
+static int	ft_countdigit(long int nb)
 {
 	int	count;
 
 	count = 0;
-	if (nb < 0)
+	if (nb == 0)
+		return (1);
+	else if (nb < 0)
 	{
 		nb = -nb;
 		count += 1;
@@ -64,7 +66,8 @@ char	*ft_itoa(int n)
 	}
 	return (str);
 }
+
 // int	main()
 // {
-// 	printf("%s \n", ft_itoa(2147483647));
+// 	printf("%s \n", ft_itoa(0));
 // }

@@ -6,7 +6,7 @@
 #    By: mapoirie <mapoirie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/10 11:43:03 by mapoirie          #+#    #+#              #
-#    Updated: 2023/05/10 14:05:13 by mapoirie         ###   ########.fr        #
+#    Updated: 2023/05/10 16:40:39 by mapoirie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,7 +81,7 @@ so:
 	gcc -nostartfiles -shared -o libft.so $(OBJ)
 
 # cible : dependance
-#	commandes
+#	commandess
 
 #	$@ 	représente la liste des cibles
 #	$ˆ 	représente la liste des dépendances

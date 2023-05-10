@@ -6,13 +6,13 @@
 /*   By: mapoirie <mapoirie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 11:58:38 by mapoirie          #+#    #+#             */
-/*   Updated: 2023/05/09 14:37:51 by mapoirie         ###   ########.fr       */
+/*   Updated: 2023/05/10 17:06:29 by mapoirie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_putendl_fd(char *s, int fd)
+void	ft_putendl_fd(char *s, int fd)
 {
 	int	i;
 

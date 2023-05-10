@@ -6,7 +6,7 @@
 /*   By: mapoirie <mapoirie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 13:52:14 by mapoirie          #+#    #+#             */
-/*   Updated: 2023/05/04 11:58:58 by mapoirie         ###   ########.fr       */
+/*   Updated: 2023/05/10 16:09:16 by mapoirie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 
 	ptr_dst = dest;
 	ptr_src = src;
+	if (ptr_dst == NULL && ptr_src == NULL)
+		return (NULL);
 	if (ptr_src <= ptr_dst)
 	{
 		ptr_dst = ptr_dst + (n - 1);

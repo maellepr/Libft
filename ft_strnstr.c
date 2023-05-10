@@ -6,7 +6,7 @@
 /*   By: mapoirie <mapoirie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 13:30:18 by mapoirie          #+#    #+#             */
-/*   Updated: 2023/05/09 14:33:59 by mapoirie         ###   ########.fr       */
+/*   Updated: 2023/05/10 16:12:35 by mapoirie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ char	*ft_strnstr(const char *s1, const char *s2, size_t len)
 	i = 0;
 	if (!s2[i])
 		return ((char *) s1);
+	if (s1 == NULL && len == 0)
+		return (NULL);
 	while (s1[i] && i < len)
 	{
 		j = 0;
@@ -36,12 +38,10 @@ char	*ft_strnstr(const char *s1, const char *s2, size_t len)
 	}
 	return (0);
 }
-
 // int main()
 // {
 //     const char  haystack[] = "lorem ipsum dolor sit amet";
 //     const char  needle[] = "dolor";
-
 //     printf("%s \n", ft_strnstr(haystack, needle, 15)); 
 //     //printf("%s \n", strnstr(haystack, needle, 5));//pas reussi a compiler
 // }

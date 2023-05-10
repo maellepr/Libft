@@ -6,31 +6,25 @@
 /*   By: mapoirie <mapoirie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 09:26:07 by mapoirie          #+#    #+#             */
-/*   Updated: 2023/05/08 18:34:31 by mapoirie         ###   ########.fr       */
+/*   Updated: 2023/05/10 17:06:01 by mapoirie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	size_t	start_diff;
+	size_t	diff;
 	size_t	end;
-	//char	*str;
-	
-	start_diff = 0;
-	while (s1[start_diff] && ft_strchr(set, s1[start_diff]))
-		start_diff++;					// start = indice auquel set et s1 different
-	end = ft_strlen(s1 + start_diff); 	// end = indice auquel on arrive a la fin de s1
+
+	diff = 0;
+	while (s1[diff] && ft_strchr(set, s1[diff]))
+		diff++;
+	end = ft_strlen(s1 + diff);
 	if (end)
-		while (s1[end + start_diff - 1] != 0 && ft_strchr(set, s1[end + start_diff - 1]))
-			end--; 						// end = start 
-	// str = (char *)malloc(end * sizeof(char) + 1);
-	// if (!str)
-	// 	return (NULL);
-	// strncpy(str, s1 + start_diff, end);
-	// return (str);
-	return (ft_substr(s1, start_diff, end));
+		while (s1[end + diff - 1] != 0 && ft_strchr(set, s1[end + diff - 1]))
+			end--;
+	return (ft_substr(s1, diff, end));
 }
 
 // int	main()
