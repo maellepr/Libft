@@ -6,7 +6,7 @@
 #    By: mapoirie <mapoirie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/10 11:43:03 by mapoirie          #+#    #+#              #
-#    Updated: 2023/05/10 16:40:39 by mapoirie         ###   ########.fr        #
+#    Updated: 2023/05/15 18:48:38 by mapoirie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,6 +53,18 @@ ft_toupper.c\
 OBJ = $(SRC:.c=.o)
 # tout ce qu'il y a dans SRC va être égal à .o
 
+SRC_BONUS = ft_lstnew.c \
+ft_lstadd_front.c \
+ft_lstsize.c \
+ft_lstlast.c \
+ft_lstadd_back.c \
+ft_lstdelone.c \
+ft_lstclear.c \
+ft_lstiter.c \
+ft_lstmap.c\
+
+OBJ_BONUS = $(SRC_BONUS:.c=.o)
+
 all : $(NAME)
 
 %.o : %.c
@@ -60,25 +72,30 @@ all : $(NAME)
 #   $(CC) $(CFLAGS) -c $(SRC)
 # veut dire : gcc -Wall -Wextra -Werror -o main.o -c main.c
 
-$(NAME) : $(OBJ)
+$(NAME): $(OBJ)
 	ar rcs $@ $^
 #$(NAME) : $(NAME) $(OBJ)
 #	ar cr $(NAME) $(OBJ)
 #     NAME OBJ
 
-clean :
-	$(RM) $(OBJ)
+bonus: $(OBJ) $(OBJ_BONUS)
+	ar rcs $(NAME) $(OBJ) $(OBJ_BONUS)
+
+clean:
+	$(RM) $(OBJ) $(OBJ_BONUS)
 # efface tous les .o cad les fichiers intermediaires	
 
-fclean :
+fclean:
 	$(RM) $(NAME)
 # efface libft.a (permet un reconstruction complète?)
 
 re: fclean all
 
 so:
-	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRC)
-	gcc -nostartfiles -shared -o libft.so $(OBJ)
+	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRC) $(SRC_BONUS)
+	gcc -nostartfiles -shared -o libft.so $(OBJ) $(OBJ_BONUS)
+
+.PHONY: all clean fclean re bonus
 
 # cible : dependance
 #	commandess

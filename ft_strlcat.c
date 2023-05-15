@@ -6,7 +6,7 @@
 /*   By: mapoirie <mapoirie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 13:31:55 by mapoirie          #+#    #+#             */
-/*   Updated: 2023/05/10 16:12:37 by mapoirie         ###   ########.fr       */
+/*   Updated: 2023/05/15 16:13:27 by mapoirie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	size_t	len_src;
 
 	i = 0;
+	if (!dst && size == 0)
+		return (ft_strlen(src));
 	len_dst = ft_strlen(dst);
 	len_src = ft_strlen(src);
 	if (size <= len_dst)

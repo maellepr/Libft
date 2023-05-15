@@ -6,7 +6,7 @@
 /*   By: mapoirie <mapoirie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 13:38:51 by mapoirie          #+#    #+#             */
-/*   Updated: 2023/05/12 15:10:12 by mapoirie         ###   ########.fr       */
+/*   Updated: 2023/05/15 14:30:15 by mapoirie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,24 @@
 
 t_list	*ft_lstnew(void *content)
 {
-	t_list	*list;
+	t_list	*new_element;
 
-	list = malloc(sizeof(*list));
-	if (!list)
+	new_element = malloc(sizeof(*new_element));
+	if (!new_element)
 		return (NULL);
-	list->content = content;
-	list->next = NULL;
-	return (list);
+	new_element->content = content;
+	new_element->next = NULL;
+	return (new_element);
 }
+
+// int	main(void)
+// {
+// 	char	content[] = "haha hihi hoho";
+// 	t_list	*list;
+
+// 	list = ft_lstnew(content);
+// 	printf("%s\n", (char *)list->content);
+// 	printf("%p\n", list->next);
+// 	free(list);
+// 	return (0);
+// }

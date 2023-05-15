@@ -1,46 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mapoirie <mapoirie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/04 15:17:17 by mapoirie          #+#    #+#             */
-/*   Updated: 2023/05/15 18:42:31 by mapoirie         ###   ########.fr       */
+/*   Created: 2023/05/15 13:58:10 by mapoirie          #+#    #+#             */
+/*   Updated: 2023/05/15 17:39:03 by mapoirie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+t_list *ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	size_t	i;
-	size_t	j;
-	char	*new_str;
+	t_list	*newlist;
+	t_list	*beginning;
 
-	i = 0;
-	j = 0;
-	if (!s)
+	if (!lst)
 		return (NULL);
-	new_str = malloc((len + 1) * sizeof(char));
-	if (!new_str)
+	newlist = ft_lstnew((*f)(lst->content));
+	if (!newlist)
 		return (NULL);
-	while (s[i])
+	beginning = newlist;
+	lst = lst->next;
+	while (lst)
 	{
-		if (i >= start && j < len)
+		newlist->next = ft_lstnew((*f)(lst->content));
+		if (!newlist->next)
 		{
-			new_str[j] = s[i];
-			j++;
+			ft_lstclear(&beginning, (*del));
+			return (NULL);
 		}
-		i++;
+		newlist = newlist->next;
+		lst = lst->next;
 	}
-	new_str[j] = '\0';
-	return (new_str);
+	return (beginning);
 }
-
-// int	main()
-// {
-// 	const char	s[] = "lorem";
-
-// 	printf("str_new : %s\n", ft_substr(s, 5, 1));
-// }
