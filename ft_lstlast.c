@@ -6,7 +6,7 @@
 /*   By: mapoirie <mapoirie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 12:18:14 by mapoirie          #+#    #+#             */
-/*   Updated: 2023/05/15 11:36:05 by mapoirie         ###   ########.fr       */
+/*   Updated: 2023/05/16 08:23:37 by mapoirie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,13 @@ t_list	*ft_lstlast(t_list *lst)
 // 	t_list	phrase4;
 // 	t_list	phrase5;
 // 	t_list	*lst;
-	
+
 // 	phrase1.content = "haha";
 // 	phrase2.content = "hihi";
 // 	phrase3.content = "hoho";
 // 	phrase4.content = "huhu";
 // 	phrase5.content = "hehe";
-	
+
 // 	phrase1.next = &phrase2;
 // 	phrase2.next = &phrase3;
 // 	phrase3.next = &phrase4;

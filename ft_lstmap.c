@@ -6,34 +6,35 @@
 /*   By: mapoirie <mapoirie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 13:58:10 by mapoirie          #+#    #+#             */
-/*   Updated: 2023/05/15 17:39:03 by mapoirie         ###   ########.fr       */
+/*   Updated: 2023/05/16 14:11:59 by mapoirie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list *ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list	*newlist;
-	t_list	*beginning;
+	t_list	*tmp;
+	t_list	*ptr;
 
-	if (!lst)
+	if (!lst || !f || !del)
 		return (NULL);
-	newlist = ft_lstnew((*f)(lst->content));
-	if (!newlist)
+	tmp = ft_lstnew(f(lst->content));
+	if (!tmp)
 		return (NULL);
-	beginning = newlist;
+	ptr = tmp;
 	lst = lst->next;
 	while (lst)
 	{
-		newlist->next = ft_lstnew((*f)(lst->content));
-		if (!newlist->next)
+		tmp->next = ft_lstnew(f(lst->content));
+		if (!tmp->next)
 		{
-			ft_lstclear(&beginning, (*del));
+			ft_lstclear(&tmp, del);
 			return (NULL);
 		}
-		newlist = newlist->next;
 		lst = lst->next;
+		tmp = tmp->next;
 	}
-	return (beginning);
+	tmp->next = NULL;
+	return (ptr);
 }

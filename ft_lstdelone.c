@@ -6,7 +6,7 @@
 /*   By: mapoirie <mapoirie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 14:34:58 by mapoirie          #+#    #+#             */
-/*   Updated: 2023/05/15 17:42:04 by mapoirie         ###   ########.fr       */
+/*   Updated: 2023/05/16 08:22:28 by mapoirie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 void	ft_lstdelone(t_list *lst, void (*del)(void*))
 {
 	if (!lst || !del)
-		return;
+		return ;
 	if (lst)
 	{
 		(*del)(lst->content);
@@ -38,7 +38,7 @@ void	ft_lstdelone(t_list *lst, void (*del)(void*))
 // 	phrase1.content = "haha";
 // 	phrase2.content = "hihi";
 // 	phrase3.content = "hoho";
-	
+
 // 	phrase1.next = &phrase2;
 // 	phrase2.next = &phrase3;
 // 	phrase3.next = NULL;

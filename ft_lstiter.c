@@ -6,7 +6,7 @@
 /*   By: mapoirie <mapoirie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 12:27:34 by mapoirie          #+#    #+#             */
-/*   Updated: 2023/05/15 14:39:01 by mapoirie         ###   ########.fr       */
+/*   Updated: 2023/05/16 08:23:12 by mapoirie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,12 @@
 // 	}
 // }
 
-void ft_lstiter(t_list *lst, void (*f)(void *))
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
 	while (lst)
 	{
 		f(lst->content);
-		lst=lst->next;
+		lst = lst->next;
 	}
 }
 
@@ -44,7 +44,7 @@ void ft_lstiter(t_list *lst, void (*f)(void *))
 // 	phrase1.content = "haha";
 // 	phrase2.content = "hihi";
 // 	phrase3.content = "hoho";
-	
+
 // 	phrase1.next = &phrase2;
 // 	phrase2.next = &phrase3;
 // 	phrase3.next = NULL;

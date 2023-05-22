@@ -6,7 +6,7 @@
 /*   By: mapoirie <mapoirie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 09:30:06 by mapoirie          #+#    #+#             */
-/*   Updated: 2023/05/15 16:27:52 by mapoirie         ###   ########.fr       */
+/*   Updated: 2023/05/17 16:08:34 by mapoirie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,16 +52,12 @@ static int	ft_countwords(char const *s, char c)
 	return (count);
 }
 
-char	**ft_split(char const *s, char c)
+char	**ft_split2(char const *s, char c, char **new_str)
 {
 	size_t	i;
 	int		j;
 	int		index;
-	char	**new_str;
 
-	new_str = malloc((ft_countwords(s, c) + 1) * sizeof(char *));
-	if (!new_str || !s)
-		return (0);
 	i = 0;
 	j = 0;
 	index = -1;
@@ -78,6 +74,18 @@ char	**ft_split(char const *s, char c)
 	}
 	new_str[j] = 0;
 	return (new_str);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char	**new_str;
+
+	if (!s)
+		return (NULL);
+	new_str = malloc((ft_countwords(s, c) + 1) * sizeof(char *));
+	if (!new_str)
+		return (NULL);
+	return (ft_split2(s, c, new_str));
 }
 
 // int	main()

@@ -6,11 +6,10 @@
 #    By: mapoirie <mapoirie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/10 11:43:03 by mapoirie          #+#    #+#              #
-#    Updated: 2023/05/15 18:48:38 by mapoirie         ###   ########.fr        #
+#    Updated: 2023/05/17 16:08:30 by mapoirie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-# noms des variables	
 NAME = libft.a
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror 
@@ -51,7 +50,6 @@ ft_tolower.c\
 ft_toupper.c\
 
 OBJ = $(SRC:.c=.o)
-# tout ce qu'il y a dans SRC va être égal à .o
 
 SRC_BONUS = ft_lstnew.c \
 ft_lstadd_front.c \
@@ -65,45 +63,32 @@ ft_lstmap.c\
 
 OBJ_BONUS = $(SRC_BONUS:.c=.o)
 
+$(NAME): $(OBJ)
+	ar rcs $@ $^
+
 all : $(NAME)
 
 %.o : %.c
 	$(CC) $(CFLAGS) -c $< -o $@ 
-#   $(CC) $(CFLAGS) -c $(SRC)
-# veut dire : gcc -Wall -Wextra -Werror -o main.o -c main.c
 
-$(NAME): $(OBJ)
-	ar rcs $@ $^
-#$(NAME) : $(NAME) $(OBJ)
-#	ar cr $(NAME) $(OBJ)
-#     NAME OBJ
 
 bonus: $(OBJ) $(OBJ_BONUS)
 	ar rcs $(NAME) $(OBJ) $(OBJ_BONUS)
 
 clean:
 	$(RM) $(OBJ) $(OBJ_BONUS)
-# efface tous les .o cad les fichiers intermediaires	
 
-fclean:
+fclean: clean
 	$(RM) $(NAME)
-# efface libft.a (permet un reconstruction complète?)
 
 re: fclean all
-
-so:
-	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRC) $(SRC_BONUS)
-	gcc -nostartfiles -shared -o libft.so $(OBJ) $(OBJ_BONUS)
 
 .PHONY: all clean fclean re bonus
 
 # cible : dependance
-#	commandess
-
+#	commandes
 #	$@ 	représente la liste des cibles
 #	$ˆ 	représente la liste des dépendances
 #	$< 	représente le nom du fichier sans suffixe/ première dépendance 
 #	$* 	représente la liste des dépendances
 #	$? 	représente la liste des dépendances plus récentes que la cible
-
-# $(NAME), all, clean, fclean et re 
